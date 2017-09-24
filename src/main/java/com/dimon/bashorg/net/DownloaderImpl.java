@@ -1,4 +1,4 @@
-package com.dimon.bashorg;
+package com.dimon.bashorg.net;
 
 import com.dimon.bashorg.net.Downloader;
 

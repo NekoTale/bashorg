@@ -1,7 +1,9 @@
 package com.dimon.bashorg;
 
 import com.dimon.bashorg.core.Parser;
+import com.dimon.bashorg.core.ParserImpl;
 import com.dimon.bashorg.net.Downloader;
+import com.dimon.bashorg.net.DownloaderImpl;
 
 import java.util.Collection;
 

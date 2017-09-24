@@ -1,5 +1,6 @@
-package com.dimon.bashorg;
+package com.dimon.bashorg.core;
 
+import com.dimon.bashorg.Post;
 import com.dimon.bashorg.core.Parser;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
