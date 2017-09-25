@@ -4,35 +4,40 @@ package com.dimon.bashorg;
  * Created by dsv on 24.09.17.
  */
 public class Post {
-    private String date;
-    private String rating;
+    private String author;
+    private String nameRu;
+    private String nameEn;
+    private String genre;
 
-    public String getDate() {
-        return date;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setDate(final String date) {
-        this.date = date;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getRating() {
-        return rating;
+    public String getNameRu() {
+        return nameRu;
     }
 
-    public void setRating(final String rating) {
-        this.rating = rating;
+    public void setNameRu(String nameRu) {
+        this.nameRu = nameRu;
     }
 
-    public String getPost() {
-        return post;
+    public String getNameEn() {
+        return nameEn;
     }
 
-    public void setPost(final String post) {
-        this.post = post;
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
     }
 
+    public String getGenre() {
+        return genre;
+    }
 
-
-    private String post;
-
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 }

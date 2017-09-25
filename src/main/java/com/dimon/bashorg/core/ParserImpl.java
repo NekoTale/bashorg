@@ -19,19 +19,20 @@ public class ParserImpl implements Parser {
 
     public Collection<Post> parseBashorgPage(final String bashorgPage) {
         Document doc = Jsoup.parse(bashorgPage);
-        Elements selectResult = doc.select("div.quote");
+        Elements selectResult = doc.select("div.tile col-sm-6");
         ArrayList<Post> posts = new ArrayList<Post>();
         for (Element element : selectResult) {
             Post bashPost = new Post();
             posts.add(bashPost);
-            Element elementsPost = element.select("div.text").first();
-            String elementsHtml = elementsPost.html();
-            String cleanString = Jsoup.clean(elementsHtml, "", Whitelist.none(), new Document.OutputSettings().prettyPrint(false));
-            bashPost.setPost(cleanString);
-            String elementsRate = element.select(".rating").text();
-            String elementsDate = element.select(".date").text();
-            bashPost.setDate(elementsDate);
-            bashPost.setRating(elementsRate);
+            Element elementsDesc = element.select("div.desc").first();
+            String elementsNameRu = elementsDesc.select("h4.title").text();
+          //  String elementsAuthor = element.select("a.person-link");
+         //   String elementsGenres = element.select();
+            String elementsNameEn = elementsDesc.select("h3.title").text();
+            bashPost.setNameEn(elementsNameEn);
+            bashPost.setNameRu(elementsNameRu);
+          //  bashPost.setAuthor(elementsAuthor);
+         //   bashPost.setGenre(elementsGenres);
         }
 
         return posts;

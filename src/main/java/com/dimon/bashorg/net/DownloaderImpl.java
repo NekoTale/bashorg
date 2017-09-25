@@ -24,9 +24,9 @@ public class DownloaderImpl implements Downloader {
         String result = "";
 
         try {
-            bashUrl = new URL("http://bash.im");
+            bashUrl = new URL(url);
             is = bashUrl.openStream();  // throws an IOException
-            br = new BufferedReader(new InputStreamReader(is, "cp1251"));
+            br = new BufferedReader(new InputStreamReader(is));
 
             while ((line = br.readLine()) != null) {
                 result = result + line;
