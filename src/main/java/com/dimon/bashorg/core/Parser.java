@@ -9,6 +9,6 @@ import java.util.Collection;
  */
 public interface Parser {
 
-    Collection<Post> parseBashorgPage(final String bashorgPage);
+    Collection<Post> parsMangaPage(final String bashorgPage);
 
 }

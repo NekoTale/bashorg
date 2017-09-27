@@ -17,15 +17,15 @@ public class DownloaderImpl implements Downloader {
     public String download(final String url) {
 
 
-        URL bashUrl;
+        URL mangaUrl;
         InputStream is = null;
         BufferedReader br;
         String line;
         String result = "";
 
         try {
-            bashUrl = new URL(url);
-            is = bashUrl.openStream();  // throws an IOException
+            mangaUrl = new URL(url);
+            is = mangaUrl.openStream();  // throws an IOException
             br = new BufferedReader(new InputStreamReader(is));
 
             while ((line = br.readLine()) != null) {
