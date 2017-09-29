@@ -10,7 +10,7 @@ public class ImageUrlsGetterImpl implements ImageURLsGetter{
     public ArrayList<String> chapterURLs (final String page){
         final Pattern arrayItemPattern = Pattern.compile("\\[('.*?'),('.*?'),(\".*?\"),.*?,.*?],");
         int startIdx = page.indexOf("rm_h.init");
-        int lastIdx = page.indexOf(",0, false);");
+        int lastIdx = page.indexOf(", 0, false);");
         String urlMassive = page.substring(startIdx, lastIdx);
         ArrayList<String> urls = new ArrayList<String>();
         final String newStr = urlMassive + ",";
@@ -27,7 +27,6 @@ public class ImageUrlsGetterImpl implements ImageURLsGetter{
         }
 
         return urls;
-
     }
 
 
