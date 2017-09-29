@@ -1,15 +1,12 @@
 package com.dimon.bashorg.core;
 
-import com.dimon.bashorg.Post;
-import com.dimon.bashorg.core.Parser;
+import com.dimon.bashorg.Manga;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.safety.Whitelist;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * Created by dsv on 24.09.17.
@@ -17,14 +14,14 @@ import java.util.Collection;
 public class ParseSearchImpl implements Parser {
 
 
-    public Collection<Post> parsMangaPage(final String mangaSearchPage) {
+    public ArrayList<Manga> parsMangaPage(final String mangaSearchPage) {
         Document doc = Jsoup.parse(mangaSearchPage);
         Elements selectResult = doc.select("div.tile.col-sm-6");
-        ArrayList<Post> posts = new ArrayList<Post>();
+        ArrayList<Manga> mangas = new ArrayList<Manga>();
         int i = 1;
         for (Element element : selectResult) {
-            Post mangaTitle = new Post();
-            posts.add(mangaTitle);
+            Manga mangaTitle = new Manga();
+            mangas.add(mangaTitle);
             Element elementsDesc = element.select("div.desc").first();
             String elementsNameRu = elementsDesc.select("h4").attr("title");
             String elementsAuthor = element.select("a.person-link").text();
@@ -44,6 +41,6 @@ public class ParseSearchImpl implements Parser {
             i++;
         }
 
-        return posts;
+        return mangas;
     }
 }

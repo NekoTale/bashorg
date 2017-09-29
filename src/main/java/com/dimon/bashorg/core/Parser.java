@@ -1,14 +1,14 @@
 package com.dimon.bashorg.core;
 
-import com.dimon.bashorg.Post;
+import com.dimon.bashorg.Manga;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 /**
  * Created by dsv on 24.09.17.
  */
 public interface Parser {
 
-    Collection<Post> parsMangaPage(final String bashorgPage);
+    ArrayList<Manga> parsMangaPage(final String bashorgPage);
 
 }

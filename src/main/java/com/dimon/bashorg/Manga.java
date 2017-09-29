@@ -5,7 +5,7 @@ import java.net.URL;
 /**
  * Created by dsv on 24.09.17.
  */
-public class Post {
+public class Manga {
     private String author;
 
 
@@ -63,5 +63,15 @@ public class Post {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+    public void outputAll () {
+        System.out.println("**********");
+        System.out.println(this.number);
+        System.out.println(this.nameEn);
+        System.out.println(this.nameRu);
+        System.out.println(this.author);
+        System.out.println(this.genre);
+        System.out.println(this.mangaAddress);
+        System.out.println("**********");
     }
 }
