@@ -21,7 +21,7 @@ public class mangaPageParseImpl implements  PageParse{
         }
         mangaCharpetsData.reverse();
         int num = 0;
-        for (int i = 0; i<mangaCharpetsData.length(); i++){
+        for (int i = 0; i<=mangaCharpetsData.length(); i++){
             mangaCharpetsData.get(i).setChapterNumber(num);
             num++;
         }
