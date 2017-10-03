@@ -1,9 +1,9 @@
 package com.dimon.bashorg;
 
 public class MangaChapters {
-    String chapterName;
-    String chapterUrl;
-    int chapterNumber;
+    private String chapterName;
+    private String chapterUrl;
+    private int chapterNumber;
 
     public int getChapterNumber() {
         return chapterNumber;

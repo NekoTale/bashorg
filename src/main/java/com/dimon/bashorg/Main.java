@@ -54,7 +54,7 @@ public class Main {
 
         MyLinkedList<MangaChapters> parsedChapterNames = mangaPageParse.selectedMangaTitles(mangaSearchPage);
 
-        for (int j = 1; i<parsedChapterNames.length(); j++){ //выводим названия глав и их URL
+        for (int j = 1; j<=parsedChapterNames.length(); j++){ //выводим названия глав и их URL
             parsedChapterNames.get(j).outputAll();
         }
         System.out.println("Введите номер главы для ее загрузки");
