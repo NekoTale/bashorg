@@ -1,4 +1,4 @@
-package com.dimon.bashorg;
+/*package com.dimon.bashorg;
 
 import com.dimon.bashorg.core.ImageUrlsGetterImpl;
 import com.dimon.bashorg.core.PageParseImpl;
@@ -14,13 +14,13 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+*/
 
 
 /**
  * Created by dsv on 24.09.17.
  */
-public class Main {
+/*public class Main {
 
     public static void main(String[] args) throws IOException {
 
@@ -81,3 +81,4 @@ public class Main {
     }
 
 }
+*/

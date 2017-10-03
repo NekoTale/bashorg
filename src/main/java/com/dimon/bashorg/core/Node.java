@@ -3,12 +3,11 @@ package com.dimon.bashorg.core;
 /**
  * Created by mds on 02.10.17.
  */
-public class Node {
+public class Node<T> {
     Node next;
-    String info;
+    T info;
 
-    public Node(Node next, String info) {
-        this.next = next;
+    public Node(T info) {
         this.info = info;
     }
 
@@ -20,11 +19,11 @@ public class Node {
         this.next = next;
     }
 
-    public String getInfo() {
+    public T getInfo() {
         return info;
     }
 
-    public void setInfo(String info) {
+    public void setInfo(T info) {
         this.info = info;
     }
 }
