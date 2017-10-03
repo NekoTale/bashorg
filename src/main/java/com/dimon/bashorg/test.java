@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class test {
     public static void main(String[] args) {
-        MyLinkedList testList = new MyLinkedList();
+        MyLinkedList<String> testList = new MyLinkedList<String>();
         Scanner hello = new Scanner(System.in);
         System.out.println("введите количество элементов");
         int kil = hello.nextInt();
@@ -24,12 +24,11 @@ public class test {
         System.out.println("введите номер элемента для удаления");
         testList.delete(hello.nextInt());
         System.out.println("длина получившегося массива равна " + testList.length());
-        System.out.println("введите сначала элемент а азатем номер для добавления");
+        System.out.println("введите сначала элемент а затем номер для добавления");
+        String buffer = "";
         testList.addToPosition(hello.nextLine(), hello.nextInt());
         System.out.println("длина получившегося массива равна " + testList.length());
-        System.out.println("введите сначала элемент а азатем номер для добавления");
-        testList.addToPosition(hello.nextLine(), hello.nextInt());
-        System.out.println("длина получившегося массива равна " + testList.length());
+
         for (int i = 0; i < testList.length(); i++) {
             System.out.println(testList.get(i));
         }

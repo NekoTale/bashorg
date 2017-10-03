@@ -30,13 +30,13 @@ public class MyLinkedList<T> {
 
     public T get(int num) {
         if (num == 1) {
-            return first.getInfo();
+            return (T) first.getInfo();
         } else if (num > length()) {
             System.out.println("введите значение не больше " + length());
             Scanner hello = new Scanner(System.in);
             num = hello.nextInt();
-            return getNode(num).getInfo();
-        } else return getNode(num).getInfo();
+            return (T) getNode(num).getInfo();
+        } else return (T) getNode(num).getInfo();
 
     }
 
@@ -96,7 +96,7 @@ public class MyLinkedList<T> {
 
 
     public T getFirst() {
-        return first.getInfo();
+        return (T) first.getInfo();
     }
 
     public T getLast() {
