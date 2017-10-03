@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class ParseSearchImpl implements Parser {
 
 
-    public ArrayList<Manga> parsMangaPage(final String mangaSearchPage) {
+    public MyLinkedList<Manga> parsMangaPage(final String mangaSearchPage) {
         Document doc = Jsoup.parse(mangaSearchPage);
         Elements selectResult = doc.select("div.tile.col-sm-6");
-        ArrayList<Manga> mangas = new ArrayList<Manga>();
+        MyLinkedList<Manga> mangas = new MyLinkedList<Manga>();
         int i = 1;
         for (Element element : selectResult) {
             Manga mangaTitle = new Manga();

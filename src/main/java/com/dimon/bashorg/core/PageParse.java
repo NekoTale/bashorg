@@ -5,5 +5,5 @@ import com.dimon.bashorg.MangaChapters;
 import java.util.Collection;
 
 public interface PageParse {
-    Collection<MangaChapters> selectedMangaTitles (final String mangaPage);
+    MyLinkedList<MangaChapters> selectedMangaTitles (final String mangaPage);
 }

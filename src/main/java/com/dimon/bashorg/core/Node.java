@@ -5,10 +5,10 @@ package com.dimon.bashorg.core;
  */
 public class Node<T> {
     Node<T> next;
-    T info;
+    T data;
 
     public Node(T info) {
-        this.info = info;
+        this.data = info;
     }
 
     public Node<T> getNext() {
@@ -19,11 +19,11 @@ public class Node<T> {
         this.next = next;
     }
 
-    public T getInfo() {
-        return info;
+    public T getData() {
+        return data;
     }
 
-    public void setInfo(T info) {
-        this.info = info;
+    public void setData(T data) {
+        this.data = data;
     }
 }

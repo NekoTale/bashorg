@@ -4,5 +4,5 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public interface ImageURLsGetter {
-    ArrayList<String> chapterURLs (final String page);
+    MyLinkedList<String> chapterURLs (final String page);
 }

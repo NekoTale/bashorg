@@ -10,7 +10,7 @@ public class ImageDownloader {
     public static void saveImage(String imageUrl) throws IOException {
         URL url = new URL(imageUrl);
         String fileName = url.getFile();
-        String destName = "C:/newfolder/" + fileName.substring(fileName.lastIndexOf("/"));
+        String destName = "/home/mds/Downloads/manga" + fileName.substring(fileName.lastIndexOf("/"));
         System.out.println(destName);
 
         InputStream is = url.openStream();

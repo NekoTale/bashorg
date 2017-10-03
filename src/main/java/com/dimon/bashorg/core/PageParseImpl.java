@@ -11,10 +11,10 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class PageParseImpl implements  PageParse{
-    public ArrayList<MangaChapters> selectedMangaTitles (final String mangaPage){
+    public MyLinkedList<MangaChapters> selectedMangaTitles (final String mangaPage){
         Document doc = Jsoup.parse(mangaPage);  //парсим страницу с мангой
         Elements chapterList = doc.select("div.expandable.chapters-link a");
-        ArrayList<MangaChapters> mangaChaptersUrls = new ArrayList<MangaChapters>();
+        MyLinkedList<MangaChapters> mangaChaptersUrls = new MyLinkedList<MangaChapters>();
         for (Element element : chapterList){  // пролистываем все названия по очереди
             MangaChapters selectedMnagaChaptersList = new MangaChapters();
             mangaChaptersUrls.add(selectedMnagaChaptersList);
@@ -23,10 +23,10 @@ public class PageParseImpl implements  PageParse{
             selectedMnagaChaptersList.setChapterName(title);
             selectedMnagaChaptersList.setChapterUrl("http://readmanga.me" + titleUrl);
         }
-        Collections.reverse(mangaChaptersUrls);
+        mangaChaptersUrls.reverse();
         int num = 1;
-        for (MangaChapters i : mangaChaptersUrls){
-            i.setChapterNumber(num);
+        for (int i = 0; i<mangaChaptersUrls.length(); i++){
+            mangaChaptersUrls.get(i).setChapterNumber(num);
             num++;
         }
 

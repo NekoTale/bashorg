@@ -9,13 +9,13 @@ public class MyLinkedList<T> {
     public MyLinkedList() {
     }
 
-    Node<T> first;
-    Node<T> last;
+    private Node<T> head;
+    private Node<T> last;
 
     public void add(T l) {
-        if (first == null) {
+        if (head == null) {
             Node<T> recent = new Node<T>(l);
-            first = recent;
+            head = recent;
             last = recent;
             System.out.println("добавлен первый элемент: " + l);
 
@@ -30,19 +30,19 @@ public class MyLinkedList<T> {
 
     public T get(int num) {
         if (num == 1) {
-            return first.getInfo();
+            return head.getData();
         } else if (num > length()) {
             System.out.println("введите значение не больше " + length());
             Scanner hello = new Scanner(System.in);
             num = hello.nextInt();
-            return getNode(num).getInfo();
-        } else return getNode(num).getInfo();
+            return getNode(num).getData();
+        } else return getNode(num).getData();
 
     }
 
 
     private Node<T> getNode(int num) {
-        Node<T> search = first;
+        Node<T> search = head;
 
         for (int i = 0; i < num - 1; i++) {
             search = search.getNext();
@@ -52,14 +52,17 @@ public class MyLinkedList<T> {
 
     public void delete(int num) {
         if (length() == 1) {
-            first = null;
+            head = null;
         } else if (num == 1) {
-            first = first.getNext();
-            System.out.println("удален первый элемент, новый первый элемент" + first.getInfo());
+            head = head.getNext();
+            System.out.println("удален первый элемент, новый первый элемент" + head.getData());
         } else {
             getNode(num - 1).setNext(getNode(num).getNext());
-            System.out.println("удален " + num + " элемент, новый  " + getNode(num).getInfo());
+            System.out.println("удален " + num + " элемент, новый  " + getNode(num).getData());
 
+        }
+        if (num == length()) {
+            getNode(length() - 1).setNext(null);
         }
 
     }
@@ -67,10 +70,10 @@ public class MyLinkedList<T> {
     public void addToPosition(T lol, int num) {
         if (num == 1) {
             Node<T> recent = new Node<T>(lol);
-            recent.setNext(first);
-            first = recent;
+            recent.setNext(head);
+            head = recent;
         } else {
-            Node recent = new Node(lol);
+            Node<T> recent = new Node<T>(lol);
             recent.setNext(getNode(num));
             getNode(num - 1).setNext(recent);
         }
@@ -78,8 +81,8 @@ public class MyLinkedList<T> {
     }
 
     public int length() {
-        if (first != null) {
-            Node helper = first;
+        if (head != null) {
+            Node helper = head;
             int counter = 1;
             while (helper.getNext() != null) {
                 helper = helper.getNext();
@@ -92,12 +95,25 @@ public class MyLinkedList<T> {
         }
     }
 
+    public void reverse() {
+        Node<T> pointer = head;
+        Node<T> previous = null;
+        Node<T> current = null;
+        while (pointer != null) {
+            current = pointer;
+            pointer = pointer.next;
+            current.next = previous;
+            previous = current;
+            head = current;
+        }
+    }
 
-    public T getFirst() {
-        return (T) first.getInfo();
+
+    public T getHead() {
+        return  head.getData();
     }
 
     public T getLast() {
-        return last.getInfo();
+        return last.getData();
     }
 }
