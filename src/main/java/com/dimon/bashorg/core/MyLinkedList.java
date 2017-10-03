@@ -59,8 +59,9 @@ public class MyLinkedList<T> {
             first = first.getNext();
             System.out.println("удален первый элемент, новый первый элемент" + first.getInfo());
         } else {
-            getNode(num - 1).setNext(getNode(num));
+            getNode(num-1).setNext(getNode(num).getNext());
             System.out.println("удален " + num + " элемент, новый  " + getNode(num).getInfo());
+
         }
 
     }
