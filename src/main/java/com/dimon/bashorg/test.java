@@ -25,8 +25,10 @@ public class test {
         testList.delete(hello.nextInt());
         System.out.println("длина получившегося массива равна " + testList.length());
         System.out.println("введите сначала элемент а затем номер для добавления");
-        String buffer = "";
-        testList.addToPosition(hello.nextLine(), hello.nextInt());
+        String buffer = hello.nextLine();
+        int position = hello.nextInt();
+
+        testList.addToPosition(buffer, position);
         System.out.println("длина получившегося массива равна " + testList.length());
 
         for (int i = 0; i < testList.length(); i++) {

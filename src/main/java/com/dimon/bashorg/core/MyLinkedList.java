@@ -9,18 +9,18 @@ public class MyLinkedList<T> {
     public MyLinkedList() {
     }
 
-    Node first;
+    Node<T> first;
     Node<T> last;
 
     public void add(T l) {
         if (first == null) {
-            Node recent = new Node(l);
+            Node<T> recent = new Node<T>(l);
             first = recent;
             last = recent;
             System.out.println("добавлен первый элемент: " + l);
 
         } else {
-            Node recent = new Node(l);
+            Node<T> recent = new Node<T>(l);
             last.setNext(recent);
             last = recent;
             System.out.println("добавлен новый элемент: " + l);
@@ -30,19 +30,19 @@ public class MyLinkedList<T> {
 
     public T get(int num) {
         if (num == 1) {
-            return (T) first.getInfo();
+            return first.getInfo();
         } else if (num > length()) {
             System.out.println("введите значение не больше " + length());
             Scanner hello = new Scanner(System.in);
             num = hello.nextInt();
-            return (T) getNode(num).getInfo();
-        } else return (T) getNode(num).getInfo();
+            return getNode(num).getInfo();
+        } else return getNode(num).getInfo();
 
     }
 
 
-    private Node getNode(int num) {
-        Node search = first;
+    private Node<T> getNode(int num) {
+        Node<T> search = first;
 
         for (int i = 0; i < num - 1; i++) {
             search = search.getNext();
@@ -51,24 +51,22 @@ public class MyLinkedList<T> {
     }
 
     public void delete(int num) {
-        if (length() == 1){
+        if (length() == 1) {
             first = null;
-        }
-        else
-        if (num == 1) {
+        } else if (num == 1) {
             first = first.getNext();
             System.out.println("удален первый элемент, новый первый элемент" + first.getInfo());
         } else {
-            getNode(num-1).setNext(getNode(num).getNext());
+            getNode(num - 1).setNext(getNode(num).getNext());
             System.out.println("удален " + num + " элемент, новый  " + getNode(num).getInfo());
 
         }
 
     }
 
-    public void addToPosition(String lol, int num) {
+    public void addToPosition(T lol, int num) {
         if (num == 1) {
-            Node recent = new Node(lol);
+            Node<T> recent = new Node<T>(lol);
             recent.setNext(first);
             first = recent;
         } else {
@@ -93,7 +91,6 @@ public class MyLinkedList<T> {
             return 0;
         }
     }
-
 
 
     public T getFirst() {

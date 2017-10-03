@@ -4,18 +4,18 @@ package com.dimon.bashorg.core;
  * Created by mds on 02.10.17.
  */
 public class Node<T> {
-    Node next;
+    Node<T> next;
     T info;
 
     public Node(T info) {
         this.info = info;
     }
 
-    public Node getNext() {
+    public Node<T> getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 
