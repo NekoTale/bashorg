@@ -11,10 +11,10 @@ import java.util.ArrayList;
 /**
  * Created by dsv on 24.09.17.
  */
-public class ParseSearchImpl implements Parser {
+public class SearchResultsParseImpl implements Parser {
 
 
-    public MyLinkedList<Manga> parsMangaPage(final String mangaSearchPage) {
+    public MyLinkedList<Manga> parseMangaSearchPage(final String mangaSearchPage) {
         Document doc = Jsoup.parse(mangaSearchPage);
         Elements selectResult = doc.select("div.tile.col-sm-6");
         MyLinkedList<Manga> mangas = new MyLinkedList<Manga>();

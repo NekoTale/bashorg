@@ -9,6 +9,6 @@ import java.util.ArrayList;
  */
 public interface Parser {
 
-    MyLinkedList<Manga> parsMangaPage(final String bashorgPage);
+    MyLinkedList<Manga> parseMangaSearchPage(final String bashorgPage);
 
 }

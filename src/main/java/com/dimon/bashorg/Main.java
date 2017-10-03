@@ -7,9 +7,7 @@ import com.dimon.bashorg.net.ImageDownloader;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -38,28 +36,28 @@ public class Main {
         Downloader downloader = new DownloaderImpl();
         String mangaSearchPage = downloader.download(url);
         System.out.println(mangaSearchPage);
-        Parser mangaParser = new ParseSearchImpl();
-        MyLinkedList<Manga> parsedQuotes = mangaParser.parsMangaPage(mangaSearchPage);
-        for (int a = 0; a<parsedQuotes.length(); a++) {
+        Parser mangaParser = new SearchResultsParseImpl();
+        MyLinkedList<Manga> parsedQuotes = mangaParser.parseMangaSearchPage(mangaSearchPage);
+        for (int a = 1; a<=parsedQuotes.length(); a++) {
             parsedQuotes.get(a).outputAll();
         }
         System.out.println("Введите номер манги для прогрузки");
         request = requestIn.nextLine();
         int i = Integer.parseInt(request);
-        String chosenName = parsedQuotes.get(i-1).getNameEn();
-        url = parsedQuotes.get(i-1).getMangaAddress();
+        String chosenName = parsedQuotes.get(i).getNameEn();
+        url = parsedQuotes.get(i).getMangaAddress();
         mangaSearchPage = downloader.download(url);
         System.out.println("Выбрана манга " + chosenName); // выводим мангу которую выбрал юзер
         System.out.println(url);                           // вывод адреса манги
-        System.out.println(mangaSearchPage);                     // вывод страницы манги
-        PageParseImpl mangaPageParse = new PageParseImpl();  // создание парсера
+   //     System.out.println(mangaSearchPage);                     // вывод страницы манги
+        mangaPageParseImpl mangaPageParse = new mangaPageParseImpl();  // создание парсера
 
         MyLinkedList<MangaChapters> parsedChapterNames = mangaPageParse.selectedMangaTitles(mangaSearchPage);
 
         for (int j = 1; i<parsedChapterNames.length(); j++){ //выводим названия глав и их URL
             parsedChapterNames.get(j).outputAll();
         }
-        System.out.println("Введите номер главы для ее загруки");
+        System.out.println("Введите номер главы для ее загрузки");
         i = Integer.parseInt(requestIn.nextLine()); //получаем номер главы
         url = parsedChapterNames.get(i-1).getChapterUrl(); //получаем URL главы
         mangaSearchPage = downloader.download(url);  // скачиваем главу

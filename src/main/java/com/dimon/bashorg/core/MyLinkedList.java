@@ -17,19 +17,16 @@ public class MyLinkedList<T> {
             Node<T> recent = new Node<T>(l);
             head = recent;
             last = recent;
-            System.out.println("добавлен первый элемент: " + l);
 
         } else {
             Node<T> recent = new Node<T>(l);
             last.setNext(recent);
             last = recent;
-            System.out.println("добавлен новый элемент: " + l);
-
         }
     }
 
     public T get(int num) {
-        if (num == 1) {
+        if (num == 0) {
             return head.getData();
         } else if (num > length()) {
             System.out.println("введите значение не больше " + length());
