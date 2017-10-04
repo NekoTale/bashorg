@@ -28,14 +28,6 @@ public class MyLinkedList<T> implements Iterable<T> {
         };
     }
 
-    public void forEach(final Consumer action) {
-
-    }
-
-    public Spliterator spliterator() {
-        return null;
-    }
-
     private class Node<T> {
         private Node<T> next;
         private T data;
