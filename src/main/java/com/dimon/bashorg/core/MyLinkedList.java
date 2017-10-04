@@ -6,11 +6,40 @@ import java.util.Scanner;
  * Created by mds on 02.10.17.
  */
 public class MyLinkedList<T> {
+    private class Node<T> {
+        Node<T> next;
+        T data;
+
+        public Node(T info) {
+            this.data = info;
+        }
+
+        public Node<T> getNext() {
+            return next;
+        }
+
+        public void setNext(Node next) {
+            this.next = next;
+        }
+
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+    }
+    private class ListOptions{
+
+    }
+
     public MyLinkedList() {
     }
 
     private Node<T> head;
     private Node<T> last;
+    private int size = 0;
 
     public void add(T l) {
         if (head == null) {
@@ -23,6 +52,7 @@ public class MyLinkedList<T> {
             last.setNext(recent);
             last = recent;
         }
+        size++;
     }
 
     public T get(int num) {
@@ -61,6 +91,7 @@ public class MyLinkedList<T> {
         if (num == length()) {
             getNode(length() - 1).setNext(null);
         }
+        size--;
 
     }
 
@@ -78,18 +109,8 @@ public class MyLinkedList<T> {
     }
 
     public int length() {
-        if (head != null) {
-            Node helper = head;
-            int counter = 1;
-            while (helper.getNext() != null) {
-                helper = helper.getNext();
-                counter++;
-            }
-            return counter;
-        } else {
-            System.out.println("массив пустой");
-            return 0;
-        }
+        return size;
+
     }
 
     public void reverse() {
@@ -104,10 +125,15 @@ public class MyLinkedList<T> {
             head = current;
         }
     }
+    private boolean hasNext(int i){
+        boolean has = false;
+        if (this.getNode(i).getNext() != null) has = true;
+        return has;
+    }
 
 
     public T getHead() {
-        return  head.getData();
+        return head.getData();
     }
 
     public T getLast() {

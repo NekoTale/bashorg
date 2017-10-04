@@ -8,6 +8,8 @@ import com.dimon.bashorg.net.ImageDownloader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 
@@ -71,7 +73,9 @@ public class Main {
         }
 
 
+        LinkedList<String> cs = new LinkedList<String>();
 
+        cs.iterator();
 
     }
 
