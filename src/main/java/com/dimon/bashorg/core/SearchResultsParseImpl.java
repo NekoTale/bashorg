@@ -6,8 +6,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.ArrayList;
-
 /**
  * Created by dsv on 24.09.17.
  */
@@ -34,7 +32,11 @@ public class SearchResultsParseImpl implements Parser {
             String elementsNameEn = elementsDesc.select("h3 a").attr("title");
             mangaTitle.setNameEn(elementsNameEn);
             mangaTitle.setNameRu(elementsNameRu);
-            mangaTitle.setMangaAddress("http://readmanga.me"+elementsAddress);
+            if (elementsAddress.contains("http://")) {
+                mangaTitle.setMangaAddress(elementsAddress);
+            } else {
+                mangaTitle.setMangaAddress("http://readmanga.me" + elementsAddress);
+            }
             mangaTitle.setAuthor(elementsAuthor);
             mangaTitle.setGenre(elementsGenres);
             mangaTitle.setNumber(i);

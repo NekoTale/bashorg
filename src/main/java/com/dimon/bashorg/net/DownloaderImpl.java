@@ -1,7 +1,5 @@
 package com.dimon.bashorg.net;
 
-import com.dimon.bashorg.net.Downloader;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;

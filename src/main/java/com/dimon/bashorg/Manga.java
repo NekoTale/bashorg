@@ -1,7 +1,5 @@
 package com.dimon.bashorg;
 
-import java.net.URL;
-
 /**
  * Created by dsv on 24.09.17.
  */
@@ -13,7 +11,7 @@ public class Manga {
         return mangaAddress;
     }
 
-    public void setMangaAddress(String mangaAddress) {
+    public void setMangaAddress(final String mangaAddress) {
         this.mangaAddress = mangaAddress;
     }
 
@@ -24,7 +22,7 @@ public class Manga {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(final int number) {
         this.number = number;
     }
 
@@ -37,7 +35,7 @@ public class Manga {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(final String author) {
         this.author = author;
     }
 
@@ -45,7 +43,7 @@ public class Manga {
         return nameRu;
     }
 
-    public void setNameRu(String nameRu) {
+    public void setNameRu(final String nameRu) {
         this.nameRu = nameRu;
     }
 
@@ -53,7 +51,7 @@ public class Manga {
         return nameEn;
     }
 
-    public void setNameEn(String nameEn) {
+    public void setNameEn(final String nameEn) {
         this.nameEn = nameEn;
     }
 
@@ -61,10 +59,11 @@ public class Manga {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(final String genre) {
         this.genre = genre;
     }
-    public void outputAll () {
+
+    public void outputAll() {
         System.out.println("**********");
         System.out.println(this.number);
         System.out.println(this.nameEn);

@@ -9,7 +9,7 @@ public class MangaChapters {
         return chapterNumber;
     }
 
-    public void setChapterNumber(int chapterNumber) {
+    public void setChapterNumber(final int chapterNumber) {
         this.chapterNumber = chapterNumber;
     }
 
@@ -17,7 +17,7 @@ public class MangaChapters {
         return chapterName;
     }
 
-    public void setChapterName(String chapterName) {
+    public void setChapterName(final String chapterName) {
         this.chapterName = chapterName;
     }
 
@@ -25,10 +25,11 @@ public class MangaChapters {
         return chapterUrl;
     }
 
-    public void setChapterUrl(String chapterUrl) {
+    public void setChapterUrl(final String chapterUrl) {
         this.chapterUrl = chapterUrl;
     }
-    public void outputAll (){
+
+    public void outputAll() {
         System.out.println("****");
         System.out.println(this.chapterNumber);
         System.out.println(this.chapterName);

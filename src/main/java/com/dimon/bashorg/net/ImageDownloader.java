@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.net.URL;
 
 public class ImageDownloader {
-    public static void saveImage(String imageUrl) throws IOException {
+    public static void saveImage(final String imageUrl) throws IOException {
         URL url = new URL(imageUrl);
         String fileName = url.getFile();
         String destName = "/home/mds/Downloads/manga" + fileName.substring(fileName.lastIndexOf("/"));
@@ -15,8 +15,8 @@ public class ImageDownloader {
 
         InputStream is = url.openStream();
         OutputStream os = new FileOutputStream(destName);
-
-        byte[] b = new byte[2048];
+        final int i = 2048;
+        byte[] b = new byte[i];
         int length;
 
         while ((length = is.read(b)) != -1) {

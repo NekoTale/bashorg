@@ -8,10 +8,7 @@ import com.dimon.bashorg.net.ImageDownloader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.Scanner;
-
 
 
 /**
@@ -19,7 +16,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
 
         String request = "";
         System.out.println("Введите запрос");
@@ -27,12 +24,12 @@ public class Main {
         request = requestIn.nextLine();
         request = request.replace(' ', '+');
         try {
-            request = URLEncoder.encode(request,"UTF-8");
+            request = URLEncoder.encode(request, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         System.out.println(request);
-        String url = "http://readmanga.me/search?q="+request+"&+=Search%21";
+        String url = "http://readmanga.me/search?q=" + request + "&+=Search%21";
         System.out.println(url);
 
         Downloader downloader = new DownloaderImpl();
@@ -40,7 +37,7 @@ public class Main {
         System.out.println(mangaSearchPage);
         Parser mangaParser = new SearchResultsParseImpl();
         MyLinkedList<Manga> parsedQuotes = mangaParser.parseMangaSearchPage(mangaSearchPage);
-        for (int a = 1; a<=parsedQuotes.length(); a++) {
+        for (int a = 1; a <= parsedQuotes.length(); a++) {
             parsedQuotes.get(a).outputAll();
         }
         System.out.println("Введите номер манги для прогрузки");
@@ -51,31 +48,28 @@ public class Main {
         mangaSearchPage = downloader.download(url);
         System.out.println("Выбрана манга " + chosenName); // выводим мангу которую выбрал юзер
         System.out.println(url);                           // вывод адреса манги
-   //     System.out.println(mangaSearchPage);                     // вывод страницы манги
-        mangaPageParseImpl mangaPageParse = new mangaPageParseImpl();  // создание парсера
+        //     System.out.println(mangaSearchPage);                     // вывод страницы манги
+        MangaPageParseImpl mangaPageParse = new MangaPageParseImpl();  // создание парсера
 
         MyLinkedList<MangaChapters> parsedChapterNames = mangaPageParse.selectedMangaTitles(mangaSearchPage);
 
-        for (int j = 1; j<=parsedChapterNames.length(); j++){ //выводим названия глав и их URL
+        for (int j = 1; j <= parsedChapterNames.length(); j++) { //выводим названия глав и их URL
             parsedChapterNames.get(j).outputAll();
         }
         System.out.println("Введите номер главы для ее загрузки");
         i = Integer.parseInt(requestIn.nextLine()); //получаем номер главы
-        url = parsedChapterNames.get(i-1).getChapterUrl(); //получаем URL главы
+        url = parsedChapterNames.get(i - 1).getChapterUrl(); //получаем URL главы
         mangaSearchPage = downloader.download(url);  // скачиваем главу
-        ImageUrlsGetterImpl ChapterURLs = new ImageUrlsGetterImpl();
-        MyLinkedList<String> chapterImageURLs = ChapterURLs.chapterURLs(mangaSearchPage);
+        ImageUrlsGetterImpl chapterURLs = new ImageUrlsGetterImpl();
+        MyLinkedList<String> chapterImageURLs = chapterURLs.chapterURLs(mangaSearchPage);
         ImageDownloader imageSave = new ImageDownloader();
-        for (int k = 0; k<chapterImageURLs.length(); k++){
+      //  for (int k = 0; k < chapterImageURLs.length(); k++) {
+        for (String k: chapterImageURLs) {
             System.out.println("начинаю загрузку с адреса");
-            System.out.println(chapterImageURLs.get(k));
-            imageSave.saveImage(chapterImageURLs.get(k));
+            System.out.println(k);
+            imageSave.saveImage(k);
         }
 
-
-        LinkedList<String> cs = new LinkedList<String>();
-
-        cs.iterator();
 
     }
 
