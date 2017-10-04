@@ -37,8 +37,8 @@ public class Main {
         System.out.println(mangaSearchPage);
         Parser mangaParser = new SearchResultsParseImpl();
         MyLinkedList<Manga> parsedQuotes = mangaParser.parseMangaSearchPage(mangaSearchPage);
-        for (int a = 1; a <= parsedQuotes.length(); a++) {
-            parsedQuotes.get(a).outputAll();
+        for (Manga a : parsedQuotes) {
+            a.outputAll();
         }
         System.out.println("Введите номер манги для прогрузки");
         request = requestIn.nextLine();
@@ -48,13 +48,12 @@ public class Main {
         mangaSearchPage = downloader.download(url);
         System.out.println("Выбрана манга " + chosenName); // выводим мангу которую выбрал юзер
         System.out.println(url);                           // вывод адреса манги
-        //     System.out.println(mangaSearchPage);                     // вывод страницы манги
         MangaPageParseImpl mangaPageParse = new MangaPageParseImpl();  // создание парсера
 
         MyLinkedList<MangaChapters> parsedChapterNames = mangaPageParse.selectedMangaTitles(mangaSearchPage);
 
-        for (int j = 1; j <= parsedChapterNames.length(); j++) { //выводим названия глав и их URL
-            parsedChapterNames.get(j).outputAll();
+        for (MangaChapters j : parsedChapterNames) { //выводим названия глав и их URL
+            j.outputAll();
         }
         System.out.println("Введите номер главы для ее загрузки");
         i = Integer.parseInt(requestIn.nextLine()); //получаем номер главы
@@ -63,8 +62,7 @@ public class Main {
         ImageUrlsGetterImpl chapterURLs = new ImageUrlsGetterImpl();
         MyLinkedList<String> chapterImageURLs = chapterURLs.chapterURLs(mangaSearchPage);
         ImageDownloader imageSave = new ImageDownloader();
-      //  for (int k = 0; k < chapterImageURLs.length(); k++) {
-        for (String k: chapterImageURLs) {
+        for (String k : chapterImageURLs) {
             System.out.println("начинаю загрузку с адреса");
             System.out.println(k);
             imageSave.saveImage(k);

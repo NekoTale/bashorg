@@ -1,8 +1,6 @@
 package com.dimon.bashorg.core;
 
 import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Spliterator;
 import java.util.function.Consumer;
 
 /**
@@ -79,47 +77,29 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     public T get(final int num) {
-            return getNode(num).getData();
+        return getNode(num).getData();
     }
 
 
     private Node<T> getNode(final int num) {
         Node<T> search = head;
-
-        for (int i = 0; i < num - 1; i++) {
+        int i = 0;
+        while (i < num && search.getNext() != null) {
             search = search.getNext();
         }
         return search;
     }
 
     public void delete(final int num) {
-        if (length() == 1) {
-            head = null;
-        } else if (num == 1) {
-            head = head.getNext();
-            System.out.println("удален первый элемент, новый первый элемент" + head.getData());
-        } else {
-            getNode(num - 1).setNext(getNode(num).getNext());
-            System.out.println("удален " + num + " элемент, новый  " + getNode(num).getData());
-
-        }
-        if (num == length()) {
-            getNode(length() - 1).setNext(null);
-        }
+        Node<T> help = new Node<>(null);
+        help = getNode(num - 1);
+        help.setNext(getNode(num + 1));
         size--;
 
     }
 
     public void addToPosition(final T lol, final int num) {
-        if (num == 1) {
-            Node<T> recent = new Node<T>(lol);
-            recent.setNext(head);
-            head = recent;
-        } else {
-            Node<T> recent = new Node<T>(lol);
-            recent.setNext(getNode(num));
-            getNode(num - 1).setNext(recent);
-        }
+
 
     }
 

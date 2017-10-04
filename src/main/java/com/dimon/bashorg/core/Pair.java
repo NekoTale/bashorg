@@ -3,12 +3,12 @@ package com.dimon.bashorg.core;
 /**
  * Created by mds on 04.10.17.
  */
-public class Pair<T,E> {
-    
+public class Pair<T, E> {
+
     private T hello;
     private E goodBye;
 
-    public Pair(T hello, E goodBye) {
+    public Pair(final T hello, final E goodBye) {
         this.hello = hello;
         this.goodBye = goodBye;
     }
