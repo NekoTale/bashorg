@@ -1,7 +1,6 @@
 package com.dimon.bashorg.core;
 
 import java.util.Iterator;
-import java.util.function.Consumer;
 
 /**
  * Created by mds on 02.10.17.
@@ -82,18 +81,23 @@ public class MyLinkedList<T> implements Iterable<T> {
 
 
     private Node<T> getNode(final int num) {
+        if (num > length()) {
+            throw new IndexOutOfBoundsException();
+        }
         Node<T> search = head;
         int i = 0;
         while (i < num && search.getNext() != null) {
             search = search.getNext();
+
+            i++;
         }
         return search;
     }
 
     public void delete(final int num) {
-        Node<T> help = new Node<>(null);
-        help = getNode(num - 1);
-        help.setNext(getNode(num + 1));
+        Node<T> helper = new Node<T>(null);
+        helper = getNode(num - 1);
+        helper.setNext(getNode(num + 1));
         size--;
 
     }
