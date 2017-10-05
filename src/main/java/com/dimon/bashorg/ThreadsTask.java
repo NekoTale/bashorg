@@ -1,10 +1,6 @@
 package com.dimon.bashorg;
 
 import java.util.Random;
-import java.util.SplittableRandom;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class ThreadsTask {
 
@@ -26,24 +22,24 @@ public class ThreadsTask {
     private boolean listenerStarted = false;
     private boolean isRunning = true;
 
-    public synchronized void waitForProduce() throws InterruptedException {
+    private synchronized void waitForProduce() throws InterruptedException {
         while (producerReady) {
             wait();
         }
     }
 
-    public synchronized void waitForListen() throws InterruptedException {
+    private synchronized void waitForListen() throws InterruptedException {
         while (!producerReady) {
             wait();
         }
     }
 
-    public synchronized void producerCreatedNumber() {
+    private synchronized void producerCreatedNumber() {
         producerReady = false;
         notifyAll();
     }
 
-    public synchronized void listenerReadNumber() {
+    private synchronized void listenerReadNumber() {
         producerReady = true;
         notifyAll();
     }
@@ -73,7 +69,7 @@ public class ThreadsTask {
             while (i < randomizer) {
                 // обновлять значение в value пока не кончится список
                 final int value = rand.nextInt(50);
-                sum+=value;
+                sum += value;
                 internalValue.setValue(value);
                 i++;
                 producerCreatedNumber();
