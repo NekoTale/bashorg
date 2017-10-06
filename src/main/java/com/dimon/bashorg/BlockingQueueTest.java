@@ -52,7 +52,7 @@ public class BlockingQueueTest {
             }
         }
 
-    }
+    }в
 
 
     private static class Reader implements Runnable {
