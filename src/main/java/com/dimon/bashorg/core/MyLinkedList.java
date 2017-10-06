@@ -81,7 +81,7 @@ public class MyLinkedList<T> implements Iterable<T> {
 
 
     private Node<T> getNode(final int num) {
-        if (num > length()) {
+        if (num >= length()) {
             throw new IndexOutOfBoundsException();
         }
         Node<T> search = head;

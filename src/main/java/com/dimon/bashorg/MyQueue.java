@@ -3,18 +3,18 @@ package com.dimon.bashorg;
 import com.dimon.bashorg.core.MyLinkedList;
 
 public class MyQueue<T> {
-    public MyQueue() {
-        this.queue = queue;
-    }
 
-    private int maxSize = 10;
+
+    private final int maxSize;
+
     private final Object monitor = new Object();
+    
+    private final MyLinkedList<T> queue = new MyLinkedList<>();
 
     public MyQueue(final int maxSize) {
         this.maxSize = maxSize;
     }
 
-    private MyLinkedList<T> queue = new MyLinkedList<>();
 
     public void put(final T object) {
         synchronized (monitor) {
