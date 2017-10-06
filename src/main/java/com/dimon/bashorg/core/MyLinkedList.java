@@ -102,6 +102,16 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     }
 
+    public T deleteFirst() {
+        if (head == null) {
+            throw new IndexOutOfBoundsException();
+        }
+        T data = head.getData();
+        head = head.getNext();
+        size--;
+        return data;
+    }
+
     public void addToPosition(final T lol, final int num) {
 
 
