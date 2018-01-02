@@ -1,9 +1,9 @@
-package com.dimon.bashorg;
+package com.dimon.mangaloader;
 
-import com.dimon.bashorg.core.*;
-import com.dimon.bashorg.net.Downloader;
-import com.dimon.bashorg.net.DownloaderImpl;
-import com.dimon.bashorg.net.ImageDownloader;
+import com.dimon.mangaloader.core.*;
+import com.dimon.mangaloader.net.Downloader;
+import com.dimon.mangaloader.net.DownloaderImpl;
+import com.dimon.mangaloader.net.ImageDownloader;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

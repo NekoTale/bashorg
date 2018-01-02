@@ -1,4 +1,4 @@
-package com.dimon.bashorg;
+package com.dimon.mangaloader;
 
 /**
  * Created by dsv on 24.09.17.

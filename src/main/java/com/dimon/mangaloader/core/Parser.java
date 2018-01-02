@@ -1,6 +1,6 @@
-package com.dimon.bashorg.core;
+package com.dimon.mangaloader.core;
 
-import com.dimon.bashorg.Manga;
+import com.dimon.mangaloader.Manga;
 
 /**
  * Created by dsv on 24.09.17.

@@ -1,4 +1,4 @@
-package com.dimon.bashorg;
+package com.dimon.mangaloader;
 
 public class MangaChapters {
     private String chapterName;

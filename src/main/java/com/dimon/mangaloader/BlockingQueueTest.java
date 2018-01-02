@@ -1,10 +1,10 @@
-package com.dimon.bashorg;
+package com.dimon.mangaloader;
 
 import java.util.Random;
 
 public class BlockingQueueTest {
     public static void main(final String[] args) {
-        MyQueue<Integer> testQueue = new MyQueue<>();
+        MyQueue<Integer> testQueue = new MyQueue<>(3);
         Thread test = new Thread(new Writer(testQueue));
         Thread test1 = new Thread(new Writer(testQueue));
         Thread test2 = new Thread(new Writer(testQueue));

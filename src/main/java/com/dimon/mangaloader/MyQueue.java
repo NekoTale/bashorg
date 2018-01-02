@@ -1,6 +1,6 @@
-package com.dimon.bashorg;
+package com.dimon.mangaloader;
 
-import com.dimon.bashorg.core.MyLinkedList;
+import com.dimon.mangaloader.core.MyLinkedList;
 
 public class MyQueue<T> {
 

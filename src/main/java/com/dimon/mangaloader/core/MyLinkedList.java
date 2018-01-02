@@ -1,4 +1,4 @@
-package com.dimon.bashorg.core;
+package com.dimon.mangaloader.core;
 
 import java.util.Iterator;
 

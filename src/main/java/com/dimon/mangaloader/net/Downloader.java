@@ -1,4 +1,4 @@
-package com.dimon.bashorg.net;
+package com.dimon.mangaloader.net;
 
 /**
  * Класс для загрузки страницы с башорга

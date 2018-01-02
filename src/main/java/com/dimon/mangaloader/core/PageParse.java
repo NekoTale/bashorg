@@ -1,6 +1,6 @@
-package com.dimon.bashorg.core;
+package com.dimon.mangaloader.core;
 
-import com.dimon.bashorg.MangaChapters;
+import com.dimon.mangaloader.MangaChapters;
 
 public interface PageParse {
     MyLinkedList<MangaChapters> selectedMangaTitles(final String mangaPage);

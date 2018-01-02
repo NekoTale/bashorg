@@ -1,6 +1,6 @@
-package com.dimon.bashorg.core;
+package com.dimon.mangaloader.core;
 
-import com.dimon.bashorg.MangaChapters;
+import com.dimon.mangaloader.MangaChapters;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

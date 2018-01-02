@@ -1,4 +1,4 @@
-package com.dimon.bashorg.net;
+package com.dimon.mangaloader.net;
 
 import java.io.BufferedReader;
 import java.io.IOException;

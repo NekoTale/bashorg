@@ -1,4 +1,4 @@
-package com.dimon.bashorg.core;
+package com.dimon.mangaloader.core;
 
 /**
  * Created by mds on 04.10.17.

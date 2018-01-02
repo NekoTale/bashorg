@@ -1,4 +1,4 @@
-package com.dimon.bashorg;
+package com.dimon.mangaloader;
 
 import java.util.Random;
 

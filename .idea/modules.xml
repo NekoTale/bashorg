@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/bashorg.iml" filepath="$PROJECT_DIR$/bashorg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manga-loader.iml" filepath="$PROJECT_DIR$/manga-loader.iml" />
     </modules>
   </component>
 </project>
